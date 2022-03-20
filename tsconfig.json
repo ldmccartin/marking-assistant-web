@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "./out",
+    "target": "es5",
+    "moduleResolution": "node",
+    "module": "es6",
+    "strict": true,
+    "declarationMap": true,
+    "declaration": true,
+    "removeComments": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "sourceMap": true,
+  },
+  "include": ["./src/**/*"]
+}
