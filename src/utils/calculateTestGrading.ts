@@ -5,10 +5,16 @@ type TestGradeAsPercentageObject = {
   [key: number]: number
 }
 
-export const mapTestTotalToSchoolGrades = (
+export type mapTestTotalToSchoolGradesFunc = (
   schoolGradePercentages: Array<PercentageGrade>,
   testTotalGrade: number,
-  pointFactor: number = 0.5
+  pointFactor?: number
+) => Array<PercentageGrade>
+
+export const mapTestTotalToSchoolGrades: mapTestTotalToSchoolGradesFunc = (
+  schoolGradePercentages,
+  testTotalGrade,
+  pointFactor = 0.5
 ) => {
 
   let testGradeAsPercentageObject: TestGradeAsPercentageObject = {}

@@ -1,25 +1,32 @@
 import React from 'react';
 import {
   useRecoilValue,
+  RecoilValueReadOnly
 } from 'recoil';
-import './gradePercentageLegend.css'
+
 import { percentageGrade } from '../../constants/percentagesAsGrades'
-import { mapTestTotalToSchoolGrades } from '../../utils/calculateTestGrading'
-import testTotalScoreState from '../../state/testTotalScore'
+import { mapTestTotalToSchoolGradesFunc } from '../../utils/calculateTestGrading'
 
 import PercentageItem from './percentageItem'
+import './gradePercentageLegend.css'
 
-const gradePercentageLegend = () => {
+type Props = {
+  testTotalScoreState: RecoilValueReadOnly<number>,
+  mapTestTotalToSchoolGradesFunc: mapTestTotalToSchoolGradesFunc
+}
+
+const gradePercentageLegend = ({testTotalScoreState, mapTestTotalToSchoolGradesFunc}: Props) => {
   const testTotalScore = useRecoilValue(testTotalScoreState)
-  const testGrades = mapTestTotalToSchoolGrades(percentageGrade, testTotalScore);
+  const testGrades = mapTestTotalToSchoolGradesFunc(percentageGrade, testTotalScore);
+
   return (
     <div className="GradePercentageLegend-Wrapper">
       <p>Test Grade Legend:</p>
       {testGrades
         .sort((a, b) => b.max - a.max)
-        .map(({ min, max, grade }, index) => (
+        .map((grade, index) => (
           <PercentageItem
-            props={{min, max, grade}}
+            percentageGrade={grade}
             key={index}
           />
       ))}

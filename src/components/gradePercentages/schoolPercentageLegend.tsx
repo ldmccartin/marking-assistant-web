@@ -7,9 +7,9 @@ function SchoolPercentageLegend() {
   return (
     <div className="SchoolPercentageLegend-Wrapper">
       <p>School Percentage Legend:</p>
-      {percentageGrade.map(({ min, max, grade }, index) => (
+      {percentageGrade.map((grade, index) => (
         <PercentageItem
-          props={{min, max, grade}}
+          percentageGrade={grade}
           key={index}
         />
       ))}

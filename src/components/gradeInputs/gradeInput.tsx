@@ -1,13 +1,17 @@
 import React from 'react';
 import {
-  useSetRecoilState
+  useSetRecoilState,
+  RecoilState
 } from 'recoil';
-import testTotalScoreState from '../../state/testTotalScore'
-import testActualGradeState from '../../state/testActualGrade'
 
 import './gradeInput.css'
 
-const GradeInputs = () => {
+type Props = {
+  testTotalScoreState: RecoilState<number>,
+  testActualGradeState: RecoilState<number>
+}
+
+const GradeInputs = ({testTotalScoreState, testActualGradeState }: Props) => {
   const setTestTotalScore = useSetRecoilState(testTotalScoreState)
   const setTestActualGrade = useSetRecoilState(testActualGradeState)
 
@@ -24,7 +28,7 @@ const GradeInputs = () => {
           placeholder='0'
           onChange={(e) => {
             const { target: { value } } = e
-            setTestActualGrade(parseInt(value))
+            setTestActualGrade(parseFloat(value))
           }}
         >
         </input>
@@ -39,7 +43,7 @@ const GradeInputs = () => {
           placeholder='0'
           onChange={(e) => {
             const { target: { value } } = e
-            setTestTotalScore(parseInt(value))
+            setTestTotalScore(parseFloat(value))
           }}
         >
         </input>

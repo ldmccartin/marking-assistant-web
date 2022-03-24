@@ -3,27 +3,27 @@ import { PercentageGrade } from '../../constants/percentagesAsGrades'
 import './percentageItem.css'
 
 type Props = {
-  props: PercentageGrade
+  percentageGrade: PercentageGrade
 }
 
-const PercentageItem = ({props}: Props) => {
+const PercentageItem = ({percentageGrade}: Props) => {
   return (
     <div className='PercentageItem-Wrapper'>
       <div className='PercentageItem-minMaxWrapper'>
         <div>
           <p>Min</p>
-          <p>{props.min}</p>
+          <p>{percentageGrade.min}</p>
         </div>
 
         <div>
           <p>Max</p>
-          <p>{props.max}</p>
+          <p>{percentageGrade.max}</p>
         </div>
       </div>
     
       <div className='PercentageItem-gradeWrapper'>
         <p>Grade</p>
-        <p>{props.grade}</p>
+        <p>{percentageGrade.grade}</p>
       </div>
     </div>
   )
