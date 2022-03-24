@@ -1,4 +1,3 @@
-import { round } from 'lodash'
 import { PercentageGrade } from '../constants/percentagesAsGrades'
 import { calculatePercentage } from "./calculatePercentage"
 
@@ -6,11 +5,11 @@ type TestGradeAsPercentageObject = {
   [key: number]: number
 }
 
-const pointFactor: number = 0.5
-
-// School grade percentages are not an even distribtion across points so shit is a bit more complicated than what I first though
-export const mapTestTotalToSchoolGrades =
-  (schoolGradePercentages: Array<PercentageGrade>, testTotalGrade: number) => {
+export const mapTestTotalToSchoolGrades = (
+  schoolGradePercentages: Array<PercentageGrade>,
+  testTotalGrade: number,
+  pointFactor: number = 0.5
+) => {
 
   let testGradeAsPercentageObject: TestGradeAsPercentageObject = {}
   for (let index = testTotalGrade; index > 0 ; index = index - pointFactor) {
@@ -21,30 +20,29 @@ export const mapTestTotalToSchoolGrades =
    * Half points fuck with the object order it seems, so lets get the keys
    * and sort them accordingly when we get the min and max possible grades
   */
-  const keys = Object.keys(testGradeAsPercentageObject).map(k => parseInt(k))
-
-  console.log('keys', keys)
+  const keys = Object.keys(testGradeAsPercentageObject).map(k => parseFloat(k)).sort((a, b) => a - b)
 
   return schoolGradePercentages
-    //lets be certain we are top to bottom
-    .sort((a, b) => b.max - a.max)
+    //lets be certain we are bottom to top
+    .sort((a, b) => a.max - b.max)
     .reduce((acc, cur, index, array) => {
-      const isBottomGrade = index === array.length - 1
-      const previousGrade = acc[index - 1]
+      const previousGrade = array[index - 1]
+      const min = previousGrade 
+        ? keys
+          .reduce((grade, key) => {
+            if (grade) {
+              return grade
+            }
 
-      // sort here, order is important
-      const minPossibleGrade = keys
-        .sort((a, b) => b - a)
-        .reduce((grade, key) => {
-          if (testGradeAsPercentageObject[key] >= cur.min) {
-            grade = key
-          }
-          return grade
-        }, 0)
+            if (testGradeAsPercentageObject[key] > previousGrade.max) {
+              grade = key
+            }
 
-      // sort here, order is important
-      const maxPossibleGrade = keys
-        .sort((a, b) => a - b)
+            return grade
+          }, 0)
+        : 0
+
+      const max = keys
         .reduce((grade, key) => {
           if (testGradeAsPercentageObject[key] <= cur.max) {
             grade = key
@@ -52,10 +50,7 @@ export const mapTestTotalToSchoolGrades =
           return grade
         }, 0)
 
-      const max = previousGrade ? maxPossibleGrade : testTotalGrade
-      const min = isBottomGrade ? 0 : minPossibleGrade
-
-      acc.push({ grade: cur.grade, max: round(max, 2), min: round(min, 2) })
+      acc.push({ grade: cur.grade, max, min })
       return acc
     }, [] as Array<PercentageGrade>)
 }

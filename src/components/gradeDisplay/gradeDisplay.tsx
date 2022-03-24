@@ -11,7 +11,7 @@ function GradeDisplay() {
 
   return (
     <div className='GradeDisplay-Wrapper'>
-      <p className='PercentageDisplay' id='percentage-display'>{Math.round(studentGrade)}</p>
+      <p className='PercentageDisplay' id='percentage-display'>{studentGrade ? Math.round(studentGrade) : ''}</p>
     </div>
   )
 }

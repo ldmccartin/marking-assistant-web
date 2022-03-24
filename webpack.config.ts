@@ -1,7 +1,13 @@
-const path = require('path');
+const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './src/index.tsx',
+  entry: {
+    app: ['./src/index.tsx', 'webpack-hot-middleware/client'],
+    vendor: ['react', 'react-dom'],
+  },
+  mode: 'production',
   devtool: 'inline-source-map',
   watchOptions: {
     poll: 1000, // Check for changes every second
@@ -20,11 +26,17 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'src', 'index.html')
+    }),
+    new webpack.HotModuleReplacementPlugin()
+  ],
   output: {
-    path: __dirname + "/public",
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'js/[name].bundle.js',
     publicPath: "/",
-    filename: "[name].bundle.js",
   },
 };

@@ -4,16 +4,21 @@
   "author": "Luke McCartin <ldmccartin@gmail.com>",
   "description": "",
   "private": true,
-  "main": "index.ts",
+  "main": "index.tsx",
   "scripts": {
     "test": "jest",
     "build": "webpack",
     "dev": "webpack --watch",
-    "start": "npx serve public"
+    "start": "npx serve dist"
   },
   "license": "MIT",
   "dependencies": {
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.5.2",
+    "install": "^0.13.0",
     "lodash": "4.17.21",
+    "npm": "^8.5.5",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "recoil": "0.6.1"
@@ -25,12 +30,15 @@
     "@types/react": "17.0.39",
     "@types/react-dom": "17.0.13",
     "css-loader": "^6.7.0",
+    "html-webpack-plugin": "^5.5.0",
     "jest": "27.5.1",
+    "source-map-loader": "^3.0.1",
     "style-loader": "^3.3.1",
     "ts-loader": "^9.2.7",
     "ts-node": "10.6.0",
     "typescript": "4.6.2",
     "webpack": "5.70.0",
-    "webpack-cli": "4.9.2"
+    "webpack-cli": "4.9.2",
+    "webpack-hot-middleware": "^2.25.1"
   }
 }

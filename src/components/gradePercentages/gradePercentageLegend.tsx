@@ -15,11 +15,13 @@ const gradePercentageLegend = () => {
   return (
     <div className="GradePercentageLegend-Wrapper">
       <p>Test Grade Legend:</p>
-      {testGrades.map(({ min, max, grade }, index) => (
-        <PercentageItem
-          props={{min, max, grade}}
-          key={index}
-        />
+      {testGrades
+        .sort((a, b) => b.max - a.max)
+        .map(({ min, max, grade }, index) => (
+          <PercentageItem
+            props={{min, max, grade}}
+            key={index}
+          />
       ))}
     </div>
   )

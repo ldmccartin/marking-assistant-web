@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "composite": true,
-    "outDir": "./out",
+    "outDir": "./build/",
     "target": "es5",
     "moduleResolution": "node",
     "module": "es6",

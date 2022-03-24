@@ -1,3 +1,5 @@
+import { round } from 'lodash'
+
 export const calculatePercentage = (studentGrade: number, totalPossibleGrade: number) => {
-  return studentGrade / totalPossibleGrade * 100
+  return round(studentGrade / totalPossibleGrade * 100)
 }
