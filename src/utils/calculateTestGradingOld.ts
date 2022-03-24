@@ -1,5 +1,4 @@
-import { round } from 'lodash'
-import { PercentageGrade } from '../constants/percentagesAsGrades'
+import { SchoolPercentageGrade, TestPercentageGrade } from '../constants/percentagesAsGrades'
 import { calculatePercentage } from "./calculatePercentage"
 
 type TestGradeAsPercentageObject = {
@@ -10,7 +9,7 @@ const pointFactor: number = 0.5
 
 // School grade percentages are not an even distribtion across points so shit is a bit more complicated than what I first though
 export const mapTestTotalToSchoolGrades =
-  (schoolGradePercentages: Array<PercentageGrade>, testTotalGrade: number) => {
+  (schoolGradePercentages: Array<SchoolPercentageGrade>, testTotalGrade: number) => {
 
   let testGradeAsPercentageObject: TestGradeAsPercentageObject = {}
   for (let index = testTotalGrade; index > 0 ; index = index - pointFactor) {
@@ -57,5 +56,5 @@ export const mapTestTotalToSchoolGrades =
 
       acc.push({ grade: cur.grade, max: max, min: min })
       return acc
-    }, [] as Array<PercentageGrade>)
+    }, [] as Array<TestPercentageGrade>)
 }

@@ -5,14 +5,14 @@ import {
 } from 'recoil';
 
 import { percentageGrade } from '../../constants/percentagesAsGrades'
-import { mapTestTotalToSchoolGradesFunc } from '../../utils/calculateTestGrading'
+import { MapTestTotalToSchoolGradesFunc } from '../../utils/calculateTestGrading'
 
 import PercentageItem from './percentageItem'
 import './gradePercentageLegend.css'
 
 type Props = {
   testTotalScoreState: RecoilValueReadOnly<number>,
-  mapTestTotalToSchoolGradesFunc: mapTestTotalToSchoolGradesFunc
+  mapTestTotalToSchoolGradesFunc: MapTestTotalToSchoolGradesFunc
 }
 
 const gradePercentageLegend = ({testTotalScoreState, mapTestTotalToSchoolGradesFunc}: Props) => {

@@ -4,6 +4,7 @@ import {
 } from 'recoil';
 
 import { mapTestTotalToSchoolGrades } from './utils/calculateTestGrading'
+import { getEmoji } from './utils/getEmoji'
 
 import calculatedGradeState from './state/selectors/calculatedGradeState'
 import testTotalScoreState from './state/testTotalScore'
@@ -27,6 +28,7 @@ function App() {
         />
         <GradeDisplay
           calculatedGradeState={calculatedGradeState}
+          getEmojiFunc={getEmoji}
         />
         <GradePercentageLegend
           testTotalScoreState={testTotalScoreState}

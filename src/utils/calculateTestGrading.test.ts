@@ -31,7 +31,7 @@ const mockSchoolGrades = [
     max: 100,
     grade: 'Sehr gut'
   }
-]
+] as any
 
 const mockTestGrades = [
   {
@@ -64,7 +64,7 @@ const mockTestGrades = [
     max: 62,
     grade: 'Sehr gut'
   }
-]
+] as any
 
 describe('mapTestTotalToSchoolGrades', () => {
   describe('When given an array of school grades and a test total score', () => {

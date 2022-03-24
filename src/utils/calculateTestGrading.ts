@@ -1,17 +1,17 @@
-import { PercentageGrade } from '../constants/percentagesAsGrades'
+import { SchoolPercentageGrade, TestPercentageGrade } from '../constants/percentagesAsGrades'
 import { calculatePercentage } from "./calculatePercentage"
 
 type TestGradeAsPercentageObject = {
   [key: number]: number
 }
 
-export type mapTestTotalToSchoolGradesFunc = (
-  schoolGradePercentages: Array<PercentageGrade>,
+export type MapTestTotalToSchoolGradesFunc = (
+  schoolGradePercentages: Array<SchoolPercentageGrade>,
   testTotalGrade: number,
   pointFactor?: number
-) => Array<PercentageGrade>
+) => Array<TestPercentageGrade>
 
-export const mapTestTotalToSchoolGrades: mapTestTotalToSchoolGradesFunc = (
+export const mapTestTotalToSchoolGrades: MapTestTotalToSchoolGradesFunc = (
   schoolGradePercentages,
   testTotalGrade,
   pointFactor = 0.5
@@ -58,5 +58,5 @@ export const mapTestTotalToSchoolGrades: mapTestTotalToSchoolGradesFunc = (
 
       acc.push({ grade: cur.grade, max, min })
       return acc
-    }, [] as Array<PercentageGrade>)
+    }, [] as Array<TestPercentageGrade>)
 }

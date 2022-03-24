@@ -1,9 +1,9 @@
 import React from 'react';
-import { PercentageGrade } from '../../constants/percentagesAsGrades'
+import { SchoolPercentageGrade, TestPercentageGrade } from '../../constants/percentagesAsGrades'
 import './percentageItem.css'
 
 type Props = {
-  percentageGrade: PercentageGrade
+  percentageGrade: SchoolPercentageGrade | TestPercentageGrade
 }
 
 const PercentageItem = ({percentageGrade}: Props) => {
