@@ -3,6 +3,7 @@ import {
   useSetRecoilState,
   RecoilState
 } from 'recoil';
+import { TextField } from '@mui/material'
 
 import './gradeInput.css'
 
@@ -18,36 +19,39 @@ const GradeInputs = ({testTotalScoreState, testActualGradeState }: Props) => {
 
   return (
     <div className='GradeInputs-Wrapper'>
-      <div>
-        <p>Student Grade</p>
-        <input 
+        <TextField 
           className='StudentGrade'
-          id='student-grade'
           name='studentGrade'
           type='number'
+          size='medium'
           placeholder='0'
+          variant='outlined'
+          color='info'
+          label='Student Grade'
+          inputProps={{ style: { color: '#fff' } }}
+          InputLabelProps={{ style: { color: '#fff' } }}
           onChange={(e) => {
             const { target: { value } } = e
             setTestActualGrade(parseFloat(value))
           }}
         >
-        </input>
-      </div>
-      <div>
-        <p>Total Possible Grade</p>
-        <input 
-          className='TotalPossibleGrade'
-          id='total-possible-grade'
-          name='totalPossibleGrade'
+        </TextField>
+        <TextField
+          className='TotalGrade'
+          name='totalGrade'
           type='number'
+          size='medium'
           placeholder='0'
+          variant='outlined'
+          color='info'
+          label='Total Grade'
+          inputProps={{ style: { color: '#fff' } }}
+          InputLabelProps={{ style: { color: '#fff' } }}
           onChange={(e) => {
             const { target: { value } } = e
             setTestTotalScore(parseFloat(value))
           }}
-        >
-        </input>
-      </div>
+        />
     </div>
   )
 }
