@@ -1,11 +1,14 @@
 {
   "name": "marking-assistant-web",
+  "homepage": "https://ldmccartin.github.io/marking-assistant-web/",
   "version": "1.0.0",
   "author": "Luke McCartin <ldmccartin@gmail.com>",
   "description": "",
   "private": true,
   "main": "index.tsx",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "jest",
     "build": "webpack",
     "dev": "webpack --watch",
@@ -16,6 +19,7 @@
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
     "@mui/material": "^5.5.2",
+    "gh-pages": "^4.0.0",
     "install": "^0.13.0",
     "lodash": "4.17.21",
     "npm": "^8.5.5",
