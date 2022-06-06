@@ -11,5 +11,4 @@ jobs:
           node-version: '16'
       - name: yarn install
         run: yarn install
-      # - name: tsc
-      #   uses: icrawl/action-tsc@v1
+             yarn build
