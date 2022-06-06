@@ -1,5 +1,6 @@
 {
   "name": "marking-assistant-web",
+  "repository": "https://ldmccartin.github.io/marking-assistant-web/",
   "homepage": "https://ldmccartin.github.io/marking-assistant-web/",
   "version": "1.0.0",
   "author": "Luke McCartin <ldmccartin@gmail.com>",
