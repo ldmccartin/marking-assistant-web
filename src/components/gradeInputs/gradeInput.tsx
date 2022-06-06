@@ -1,9 +1,12 @@
 import React from 'react';
 import {
   useSetRecoilState,
+  useRecoilValue,
   RecoilState
 } from 'recoil';
 import { TextField } from '@mui/material'
+
+import { percentageGrade } from '../../constants/percentagesAsGrades';
 
 import './gradeInput.css'
 
@@ -15,6 +18,7 @@ type Props = {
 const GradeInputs = ({testTotalScoreState, testActualGradeState }: Props) => {
   const setTestTotalScore = useSetRecoilState(testTotalScoreState)
   const setTestActualGrade = useSetRecoilState(testActualGradeState)
+  const testTotalScore = useRecoilValue(testTotalScoreState)
 
 
   return (
@@ -45,11 +49,16 @@ const GradeInputs = ({testTotalScoreState, testActualGradeState }: Props) => {
           variant='outlined'
           color='info'
           label='Total Grade'
-          inputProps={{ style: { color: '#fff' } }}
+          inputProps={{ 
+            style: { color: '#fff' },
+            min: percentageGrade.length
+          }}
           InputLabelProps={{ style: { color: '#fff' } }}
+          value={testTotalScore || null}
           onChange={(e) => {
             const { target: { value } } = e
-            setTestTotalScore(parseFloat(value))
+            const newValue = parseFloat(value) < percentageGrade.length ? percentageGrade.length : parseFloat(value)
+            setTestTotalScore(newValue)
           }}
         />
     </div>
