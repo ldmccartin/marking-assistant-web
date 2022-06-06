@@ -36,8 +36,8 @@ module.exports = {
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'marking-assistant-web/static/js/[name]-[fullhash].bundle.js',
-    chunkFilename: 'marking-assistant-web/static/js/[name]-[fullhash].bundle.js',
-    publicPath: "/",
+    filename: 'static/js/[name]-[fullhash].bundle.js',
+    chunkFilename: 'static/js/lib-[fullhash].bundle.js',
+    publicPath: "/marking-assistant-web",
   },
 };
