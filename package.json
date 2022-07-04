@@ -48,6 +48,6 @@
     "webpack-hot-middleware": "^2.25.1"
   },
   "overrides": {
-    "minist": "1.2.6"
+    "minimist": "1.2.6"
   }
 }
