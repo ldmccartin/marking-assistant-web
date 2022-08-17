@@ -38,6 +38,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'static/js/[name]-[fullhash].bundle.js',
     chunkFilename: 'static/js/lib-[fullhash].bundle.js',
-    publicPath: "/", // remove everything after / when local fix this by making differeny scripts like this guy https://github.com/gfmio/github-pages-boilerplate/tree/master/config/webpack
+    publicPath: "/",
   },
 };
