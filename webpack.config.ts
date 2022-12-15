@@ -38,6 +38,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name]-[fullhash].bundle.js',
     chunkFilename: 'vendor-[fullhash].bundle.js',
-    publicPath: "/",
+    publicPath: "/marking-assistant-web/",
   },
 };
