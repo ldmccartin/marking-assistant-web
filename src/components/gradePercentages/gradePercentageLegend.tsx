@@ -5,18 +5,18 @@ import {
 } from 'recoil';
 
 import { percentageGrade } from '../../constants/percentagesAsGrades'
-import { MapTestTotalToSchoolGradesFunc } from '../../utils/calculateTestGrading'
+import type { MapTestTotalToSchoolGradesFunc } from '../../utils/calculateTestGrading'
 
 import PercentageItem from './percentageItem'
 import './gradePercentageLegend.css'
 
 type Props = {
-  testTotalScoreState: RecoilValueReadOnly<number>,
+  maxPossibleGradeState: RecoilValueReadOnly<number>,
   mapTestTotalToSchoolGradesFunc: MapTestTotalToSchoolGradesFunc
 }
 
-const gradePercentageLegend = ({testTotalScoreState, mapTestTotalToSchoolGradesFunc}: Props) => {
-  const testTotalScore = useRecoilValue(testTotalScoreState)
+const gradePercentageLegend = ({maxPossibleGradeState, mapTestTotalToSchoolGradesFunc}: Props) => {
+  const testTotalScore = useRecoilValue(maxPossibleGradeState)
   const testGrades = mapTestTotalToSchoolGradesFunc(percentageGrade, testTotalScore);
 
   return (

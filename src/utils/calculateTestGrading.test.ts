@@ -7,27 +7,27 @@ const mockSchoolGrades = [
     grade: 'Ungenügend'
   },
   {
-    min: 25,
+    min: 24.5,
     max: 49,
     grade: 'Mangelhaft'
   },
   {
-    min: 50,
+    min: 49.5,
     max: 64,
     grade: 'Ausreichend'
   },
   {
-    min: 65,
+    min: 64.5,
     max: 80,
     grade: 'Befriedigend'
   },
   {
-    min: 81,
+    min: 80.5,
     max: 90,
     grade: 'Gut'
   },
   {
-    min: 91,
+    min: 90.5,
     max: 100,
     grade: 'Sehr gut'
   }
@@ -36,16 +36,16 @@ const mockSchoolGrades = [
 const mockTestGrades = [
   {
     min: 0,
-    max: 14.5,
+    max: 15,
     grade: 'Ungenügend'
   },
   {
-    min: 15,
-    max: 30,
+    min: 15.5,
+    max: 30.5,
     grade: 'Mangelhaft'
   },
   {
-    min: 30.5,
+    min: 31,
     max: 39.5,
     grade: 'Ausreichend'
   },
@@ -56,11 +56,11 @@ const mockTestGrades = [
   },
   {
     min: 50,
-    max: 55.5,
+    max: 56,
     grade: 'Gut'
   },
   {
-    min: 56,
+    min: 56.5,
     max: 62,
     grade: 'Sehr gut'
   }
@@ -69,13 +69,13 @@ const mockTestGrades = [
 describe('mapTestTotalToSchoolGrades', () => {
   describe('When given an array of school grades and a test total score', () => {
     it('Should return an array of min max test points mapped to school grade totals', () => {
-      expect(mapTestTotalToSchoolGrades(mockSchoolGrades, 100)).toEqual(mockSchoolGrades)
+      expect(mapTestTotalToSchoolGrades(mockSchoolGrades, 100, 0.5)).toEqual(mockSchoolGrades)
     })
   })
 
   describe('When calculating grade points' , () => {
     it('Should map points to correct grading', () => {
-      expect(mapTestTotalToSchoolGrades(mockSchoolGrades, 62)).toEqual(mockTestGrades)
+      expect(mapTestTotalToSchoolGrades(mockSchoolGrades, 62, 0.5)).toEqual(mockTestGrades)
     })
   })
 })

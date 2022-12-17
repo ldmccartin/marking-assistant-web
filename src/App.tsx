@@ -6,9 +6,9 @@ import {
 import { mapTestTotalToSchoolGrades } from './utils/calculateTestGrading'
 import { getEmoji } from './utils/getEmoji'
 
-import calculatedGradeState from './state/selectors/calculatedGradeState'
-import testTotalScoreState from './state/testTotalScore'
-import testActualGradeState from './state/testActualGrade'
+import calculatedGradePercentageSelectorState from './state/selectors/calculatedGradePercentageSelectorState'
+import maxPossibleGradeState from './state/maxPossibleGrade'
+import actualGradeState from './state/actualGrade'
 
 import './App.css'
 import SchoolPercentageLegend from './components/gradePercentages/schoolPercentageLegend'
@@ -23,15 +23,15 @@ function App() {
       <div className='App'>
         <SchoolPercentageLegend />
         <GradeInputs
-          testTotalScoreState={testTotalScoreState}
-          testActualGradeState={testActualGradeState}
+          maxPossibleGradeState={maxPossibleGradeState}
+          actualGradeState={actualGradeState}
         />
         <GradeDisplay
-          calculatedGradeState={calculatedGradeState}
+          calculatedGradeState={calculatedGradePercentageSelectorState}
           getEmojiFunc={getEmoji}
         />
         <GradePercentageLegend
-          testTotalScoreState={testTotalScoreState}
+          maxPossibleGradeState={maxPossibleGradeState}
           mapTestTotalToSchoolGradesFunc={mapTestTotalToSchoolGrades}
         />
       </div>

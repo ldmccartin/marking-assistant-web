@@ -11,14 +11,14 @@ import { percentageGrade } from '../../constants/percentagesAsGrades';
 import './gradeInput.css'
 
 type Props = {
-  testTotalScoreState: RecoilState<number>,
-  testActualGradeState: RecoilState<number>
+  maxPossibleGradeState: RecoilState<number>,
+  actualGradeState: RecoilState<number>
 }
 
-const GradeInputs = ({testTotalScoreState, testActualGradeState }: Props) => {
-  const setTestTotalScore = useSetRecoilState(testTotalScoreState)
-  const setTestActualGrade = useSetRecoilState(testActualGradeState)
-  const testTotalScore = useRecoilValue(testTotalScoreState)
+const GradeInputs = ({maxPossibleGradeState, actualGradeState }: Props) => {
+  const setTestTotalScore = useSetRecoilState(maxPossibleGradeState)
+  const setTestActualGrade = useSetRecoilState(actualGradeState)
+  const testTotalScore = useRecoilValue(maxPossibleGradeState)
 
 
   return (

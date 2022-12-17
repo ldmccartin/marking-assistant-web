@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
-    app: ['./src/index.tsx', 'webpack-hot-middleware/client'],
+    app: ['./src/index.tsx', 'webpack-hot-middleware/client'], // probs need to take out this hot-middleware for deployed stuff at some point
     vendor: ['react', 'react-dom'],
   },
   mode: 'production',
@@ -26,7 +26,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+    extensions: ['.js', '.json', '.ts', '.tsx'],
   },
   plugins: [
     new HtmlWebpackPlugin({
