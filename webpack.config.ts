@@ -35,7 +35,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   output: {
-    path: path.resolve(__dirname, 'dist/marking-assistant-web/'), // if website not finding sources, make this just dist
+    path: path.resolve(__dirname, 'dist'), // if website not finding sources, make this just dist
     filename: '[name]-[fullhash].bundle.js',
     chunkFilename: 'vendor-[fullhash].bundle.js',
     publicPath: "/marking-assistant-web/",
