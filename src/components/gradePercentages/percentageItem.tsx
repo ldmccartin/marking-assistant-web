@@ -1,12 +1,13 @@
 import React from 'react';
-import { SchoolPercentageGrade, TestPercentageGrade } from '../../constants/percentagesAsGrades'
+import { PercentageGrade } from '../../constants/percentagesAsGrades'
 import './percentageItem.css'
 
 type Props = {
-  percentageGrade: SchoolPercentageGrade | TestPercentageGrade
+  key: number,
+  percentageGrade: PercentageGrade
 }
 
-const PercentageItem = ({percentageGrade}: Props) => {
+const PercentageItem = ({key, percentageGrade}: Props) => {
   return (
     <div className='PercentageItem-Wrapper'>
       <div className='PercentageItem-minMaxWrapper'>

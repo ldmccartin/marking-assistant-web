@@ -1,4 +1,5 @@
 import { mapTestTotalToSchoolGrades } from './calculateTestGrading'
+import type { SchoolPercentageGrade } from '../constants/percentagesAsGrades'
 
 const mockSchoolGrades = [
   {
@@ -31,7 +32,7 @@ const mockSchoolGrades = [
     max: 100,
     grade: 'Sehr gut'
   }
-] as any
+] as SchoolPercentageGrade[]
 
 const mockTestGrades = [
   {
@@ -64,7 +65,7 @@ const mockTestGrades = [
     max: 62,
     grade: 'Sehr gut'
   }
-] as any
+] as SchoolPercentageGrade[]
 
 describe('mapTestTotalToSchoolGrades', () => {
   describe('When given an array of school grades and a test total score', () => {

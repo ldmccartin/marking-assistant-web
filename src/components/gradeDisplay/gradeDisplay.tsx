@@ -1,20 +1,15 @@
 import React from 'react';
 import {
-  RecoilValueReadOnly,
   useRecoilValue
 } from 'recoil';
 
-import { GetEmojiFunc } from '../../utils/getEmoji'
+import { getEmoji } from '../../utils/getEmoji'
+import calculatedGradeSelector from '../../state/selectors/calculatedGradePercentageSelectorState'
 import './gradeDisplay.css'
 
-type Props = {
-  calculatedGradeState: RecoilValueReadOnly<number>
-  getEmojiFunc: GetEmojiFunc
-}
-
-function GradeDisplay({ calculatedGradeState, getEmojiFunc }: Props) {
-  const studentGrade = useRecoilValue(calculatedGradeState)
-  const emoji = getEmojiFunc(studentGrade)
+function GradeDisplay() {
+  const studentGrade = useRecoilValue(calculatedGradeSelector)
+  const emoji = getEmoji(studentGrade)
 
   return (
     <div className='GradeDisplay-Wrapper'>

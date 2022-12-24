@@ -1,9 +1,7 @@
 import { percentageGrade } from '../constants/percentagesAsGrades'
 
-export type GetEmojiFunc = (studentGrade: number) => string
-
-export const getEmoji: GetEmojiFunc = (studentGrade) => {
+export const getEmoji = (studentGrade: number): string => {
   return percentageGrade.find(
     (grade) => studentGrade && studentGrade <= grade.max && studentGrade >= grade.min
-  )?.emojiClass || 'defaultEmoji'
+  )?.emojiCssClass || 'defaultEmoji'
 }

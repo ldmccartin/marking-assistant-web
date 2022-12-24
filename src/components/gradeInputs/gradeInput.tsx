@@ -1,21 +1,17 @@
 import React from 'react';
 import {
   useSetRecoilState,
-  useRecoilValue,
-  RecoilState
+  useRecoilValue
 } from 'recoil';
 import { TextField } from '@mui/material'
 
-import { percentageGrade } from '../../constants/percentagesAsGrades';
-
 import './gradeInput.css'
+import { percentageGrade } from '../../constants/percentagesAsGrades';
+import maxPossibleGradeState from '../../state/maxPossibleGrade'
+import actualGradeState from '../../state/actualGrade'
 
-type Props = {
-  maxPossibleGradeState: RecoilState<number>,
-  actualGradeState: RecoilState<number>
-}
 
-const GradeInputs = ({maxPossibleGradeState, actualGradeState }: Props) => {
+const GradeInputs = () => {
   const setTestTotalScore = useSetRecoilState(maxPossibleGradeState)
   const setTestActualGrade = useSetRecoilState(actualGradeState)
   const testTotalScore = useRecoilValue(maxPossibleGradeState)

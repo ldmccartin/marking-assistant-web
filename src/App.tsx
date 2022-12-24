@@ -3,13 +3,6 @@ import {
   RecoilRoot,
 } from 'recoil';
 
-import { mapTestTotalToSchoolGrades } from './utils/calculateTestGrading'
-import { getEmoji } from './utils/getEmoji'
-
-import calculatedGradePercentageSelectorState from './state/selectors/calculatedGradePercentageSelectorState'
-import maxPossibleGradeState from './state/maxPossibleGrade'
-import actualGradeState from './state/actualGrade'
-
 import './App.css'
 import SchoolPercentageLegend from './components/gradePercentages/schoolPercentageLegend'
 import GradePercentageLegend from './components/gradePercentages/gradePercentageLegend'
@@ -22,18 +15,9 @@ function App() {
     <RecoilRoot>
       <div className='App'>
         <SchoolPercentageLegend />
-        <GradeInputs
-          maxPossibleGradeState={maxPossibleGradeState}
-          actualGradeState={actualGradeState}
-        />
-        <GradeDisplay
-          calculatedGradeState={calculatedGradePercentageSelectorState}
-          getEmojiFunc={getEmoji}
-        />
-        <GradePercentageLegend
-          maxPossibleGradeState={maxPossibleGradeState}
-          mapTestTotalToSchoolGradesFunc={mapTestTotalToSchoolGrades}
-        />
+        <GradeInputs />
+        <GradeDisplay />
+        <GradePercentageLegend />
       </div>
     </RecoilRoot>
   )

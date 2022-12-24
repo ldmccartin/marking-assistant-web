@@ -1,52 +1,48 @@
-export type SchoolPercentageGrade = {
-  min: number,
-  max: number,
-  grade: string,
-  emojiClass: string
-}
-
-export type TestPercentageGrade = {
+export type PercentageGrade = {
   min: number,
   max: number,
   grade: string,
 }
 
-export const percentageGrade: Array<SchoolPercentageGrade> = [
+export interface SchoolPercentageGrade extends PercentageGrade {
+  emojiCssClass: string
+}
+
+export const percentageGrade: SchoolPercentageGrade[] = [
   {
     min: 0,
     max: 24,
     grade: 'Ungenügend',
-    emojiClass: 'sixthGradeEmoji'
+    emojiCssClass: 'sixthGradeEmoji'
   },
   {
     min: 25,
     max: 49,
     grade: 'Mangelhaft',
-    emojiClass: 'fifthGradeEmoji'
+    emojiCssClass: 'fifthGradeEmoji'
   },
   {
     min: 50,
     max: 64,
     grade: 'Ausreichend',
-    emojiClass: 'fourthGradeEmoji'
+    emojiCssClass: 'fourthGradeEmoji'
   },
   {
     min: 65,
     max: 80,
     grade: 'Befriedigend',
-    emojiClass: 'thirdGradeEmoji'
+    emojiCssClass: 'thirdGradeEmoji'
   },
   {
     min: 81,
     max: 90,
     grade: 'Gut',
-    emojiClass: 'secondGradetEmoji'
+    emojiCssClass: 'secondGradetEmoji'
   },
   {
     min: 91,
     max: 100,
     grade: 'Sehr gut',
-    emojiClass: 'firstGradeEmoji'
-   
+    emojiCssClass: 'firstGradeEmoji'
   }
-].sort((a, b) => b.max - a.max)
+]
