@@ -13,18 +13,18 @@ const PercentageItem = ({key, percentageGrade}: Props) => {
       <div className='PercentageItem-minMaxWrapper'>
         <div>
           <p>Min</p>
-          <p>{percentageGrade.min}</p>
+          <p>{percentageGrade.minGrade}</p>
         </div>
 
         <div>
           <p>Max</p>
-          <p>{percentageGrade.max}</p>
+          <p>{percentageGrade.maxGrade}</p>
         </div>
       </div>
     
       <div className='PercentageItem-gradeWrapper'>
         <p>Grade</p>
-        <p>{percentageGrade.grade}</p>
+        <p>{percentageGrade.gradeLabel}</p>
       </div>
     </div>
   )

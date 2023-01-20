@@ -39,5 +39,6 @@ module.exports = {
     filename: '[name]-[fullhash].bundle.js',
     chunkFilename: 'vendor-[fullhash].bundle.js',
     publicPath: "/marking-assistant-web/",
+    // publicPath: "/" // locally
   },
 };

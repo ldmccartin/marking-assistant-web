@@ -1,75 +1,75 @@
 import { mapTestTotalToSchoolGrades } from './calculateTestGrading'
-import type { SchoolPercentageGrade } from '../constants/percentagesAsGrades'
+import type { PercentageGrade } from '../constants/percentagesAsGrades'
 
 const mockSchoolGrades = [
   {
-    min: 0,
-    max: 24,
-    grade: 'Ungenügend'
+    minGrade: 0,
+    maxGrade: 24,
+    gradeLabel: 'Ungenügend'
   },
   {
-    min: 24.5,
-    max: 49,
-    grade: 'Mangelhaft'
+    minGrade: 24.5,
+    maxGrade: 49,
+    gradeLabel: 'Mangelhaft'
   },
   {
-    min: 49.5,
-    max: 64,
-    grade: 'Ausreichend'
+    minGrade: 49.5,
+    maxGrade: 64,
+    gradeLabel: 'Ausreichend'
   },
   {
-    min: 64.5,
-    max: 80,
-    grade: 'Befriedigend'
+    minGrade: 64.5,
+    maxGrade: 80,
+    gradeLabel: 'Befriedigend'
   },
   {
-    min: 80.5,
-    max: 90,
-    grade: 'Gut'
+    minGrade: 80.5,
+    maxGrade: 90,
+    gradeLabel: 'Gut'
   },
   {
-    min: 90.5,
-    max: 100,
-    grade: 'Sehr gut'
+    minGrade: 90.5,
+    maxGrade: 100,
+    gradeLabel: 'Sehr gut'
   }
-] as SchoolPercentageGrade[]
+] as PercentageGrade[]
 
 const mockTestGrades = [
   {
-    min: 0,
-    max: 15,
-    grade: 'Ungenügend'
+    minGrade: 0,
+    maxGrade: 15,
+    gradeLabel: 'Ungenügend'
   },
   {
-    min: 15.5,
-    max: 30.5,
-    grade: 'Mangelhaft'
+    minGrade: 15.5,
+    maxGrade: 30.5,
+    gradeLabel: 'Mangelhaft'
   },
   {
-    min: 31,
-    max: 39.5,
-    grade: 'Ausreichend'
+    minGrade: 31,
+    maxGrade: 39.5,
+    gradeLabel: 'Ausreichend'
   },
   {
-    min: 40,
-    max: 49.5,
-    grade: 'Befriedigend'
+    minGrade: 40,
+    maxGrade: 49.5,
+    gradeLabel: 'Befriedigend'
   },
   {
-    min: 50,
-    max: 56,
-    grade: 'Gut'
+    minGrade: 50,
+    maxGrade: 56,
+    gradeLabel: 'Gut'
   },
   {
-    min: 56.5,
-    max: 62,
-    grade: 'Sehr gut'
+    minGrade: 56.5,
+    maxGrade: 62,
+    gradeLabel: 'Sehr gut'
   }
-] as SchoolPercentageGrade[]
+] as PercentageGrade[]
 
 describe('mapTestTotalToSchoolGrades', () => {
   describe('When given an array of school grades and a test total score', () => {
-    it('Should return an array of min max test points mapped to school grade totals', () => {
+    it('Should return an array of minGrade maxGrade test points mapped to school grade totals', () => {
       expect(mapTestTotalToSchoolGrades(mockSchoolGrades, 100, 0.5)).toEqual(mockSchoolGrades)
     })
   })

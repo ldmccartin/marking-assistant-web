@@ -47,13 +47,16 @@ const GradeInputs = () => {
           label='Total Grade'
           inputProps={{ 
             style: { color: '#fff' },
-            min: percentageGrade.length
+            min: 0
           }}
           InputLabelProps={{ style: { color: '#fff' } }}
           value={testTotalScore || null}
           onChange={(e) => {
             const { target: { value } } = e
-            const newValue = parseFloat(value) < percentageGrade.length ? percentageGrade.length : parseFloat(value)
+            const newValue = parseFloat(value)
+            if (newValue < percentageGrade.length) {
+              return
+            }
             setTestTotalScore(newValue)
           }}
         />

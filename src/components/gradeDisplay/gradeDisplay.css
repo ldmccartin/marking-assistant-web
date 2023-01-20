@@ -6,30 +6,3 @@
   margin: 10px;
   font-size: 3em;
 }
-
-.defaultEmoji:after {
-  content: '\01F914';
-}
-
-.sixthGradeEmoji:after {
-  content: '\01F62C';
-}
-
-.fifthGradeEmoji:after {
-  content: '\01F614';
-}
-
-.fourthGradeEmoji:after {
-  content: '\01F928';
-}
-
-.thirdGradeEmoji:after {
-  content: '\01F642';
-}
-
-.secondGradetEmoji:after {
-  content: '\01F604';
-}
-.firstGradeEmoji:after {
-  content: '\01F929';
-}

@@ -17,7 +17,7 @@ const gradePercentageLegend = () => {
     <div className="GradePercentageLegend-Wrapper">
       <p>Test Grade Legend:</p>
       {testGrades
-        .sort((a, b) => b.max - a.max)
+        .sort((a, b) => b.maxGrade - a.maxGrade)
         .map((grade, index) => (
           <PercentageItem
             percentageGrade={grade}

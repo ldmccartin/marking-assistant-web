@@ -1,48 +1,38 @@
 export type PercentageGrade = {
-  min: number,
-  max: number,
-  grade: string,
+  minGrade: number,
+  maxGrade: number,
+  gradeLabel: string,
 }
 
-export interface SchoolPercentageGrade extends PercentageGrade {
-  emojiCssClass: string
-}
-
-export const percentageGrade: SchoolPercentageGrade[] = [
+export const percentageGrade: PercentageGrade[] = [
   {
-    min: 0,
-    max: 24,
-    grade: 'Ungenügend',
-    emojiCssClass: 'sixthGradeEmoji'
+    minGrade: 0,
+    maxGrade: 24,
+    gradeLabel: 'Ungenügend'
   },
   {
-    min: 25,
-    max: 49,
-    grade: 'Mangelhaft',
-    emojiCssClass: 'fifthGradeEmoji'
+    minGrade: 25,
+    maxGrade: 49,
+    gradeLabel: 'Mangelhaft'
   },
   {
-    min: 50,
-    max: 64,
-    grade: 'Ausreichend',
-    emojiCssClass: 'fourthGradeEmoji'
+    minGrade: 50,
+    maxGrade: 64,
+    gradeLabel: 'Ausreichend'
   },
   {
-    min: 65,
-    max: 80,
-    grade: 'Befriedigend',
-    emojiCssClass: 'thirdGradeEmoji'
+    minGrade: 65,
+    maxGrade: 80,
+    gradeLabel: 'Befriedigend'
   },
   {
-    min: 81,
-    max: 90,
-    grade: 'Gut',
-    emojiCssClass: 'secondGradetEmoji'
+    minGrade: 81,
+    maxGrade: 90,
+    gradeLabel: 'Gut'
   },
   {
-    min: 91,
-    max: 100,
-    grade: 'Sehr gut',
-    emojiCssClass: 'firstGradeEmoji'
+    minGrade: 91,
+    maxGrade: 100,
+    gradeLabel: 'Sehr gut'
   }
 ]
